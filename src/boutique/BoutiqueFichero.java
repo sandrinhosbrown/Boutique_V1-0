@@ -5,10 +5,10 @@
  */
 package boutique;
 
-import OCUtilidades.Fichero;
+import utilidades.Fichero;
 /**
  *
- * @author usu21
+ * @author Sandro Gamarra
  */
 public class BoutiqueFichero {
     public static Fichero miFichero;

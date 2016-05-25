@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author usu21
+ * @author Sandro Gamarra
  */
 public class AltaNuevasPrendas extends javax.swing.JDialog {
     //Para hacer el binding necesito un objeto de la clase
@@ -43,6 +43,7 @@ public class AltaNuevasPrendas extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -52,8 +53,8 @@ public class AltaNuevasPrendas extends javax.swing.JDialog {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
+        jComboBoxColor = new javax.swing.JComboBox();
+        jComboBoxTalla = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -70,9 +71,30 @@ public class AltaNuevasPrendas extends javax.swing.JDialog {
 
         jLabel5.setText("Talla:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "----- ESCOGE UN COLOR -----", "Azul", "Verde", "Rojo", "Amarillo", "Gris", "Blanco", "Negro" }));
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${nuevaPelicula.codigo}"), jTextField1, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--- TALLA ---", "XL", "L", "M", "S", "XS" }));
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${nuevaPelicula.precioVenta}"), jTextField2, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${nuevaPelicula.descripcion}"), jTextField3, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+
+        jComboBoxColor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "----- ESCOGE UN COLOR -----", "Azul", "Verde", "Rojo", "Amarillo", "Gris", "Blanco", "Negro" }));
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${nuevaPelicula.color}"), jComboBoxColor, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        bindingGroup.addBinding(binding);
+
+        jComboBoxTalla.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "--- TALLA ---", "XL", "L", "M", "S", "XS" }));
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, this, org.jdesktop.beansbinding.ELProperty.create("${nuevaPelicula.talla}"), jComboBoxTalla, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
+        bindingGroup.addBinding(binding);
 
         jButton1.setText("Aceptar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -104,12 +126,12 @@ public class AltaNuevasPrendas extends javax.swing.JDialog {
                             .addComponent(jLabel5))
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxTalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBoxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 146, Short.MAX_VALUE))
+                        .addGap(0, 31, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -134,17 +156,19 @@ public class AltaNuevasPrendas extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxColor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                    .addComponent(jComboBoxTalla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
+
+        bindingGroup.bind();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -155,80 +179,58 @@ public class AltaNuevasPrendas extends javax.swing.JDialog {
                 || nuevaPrenda.getDescripcion().isEmpty() || nuevaPrenda.getTalla().isEmpty()){
             JOptionPane.showMessageDialog(this, "No se pueden dejar campos en blanco", "Campos en blanco",
                     JOptionPane.ERROR_MESSAGE);
-        } else if (nuevaPrenda.getColor().equals("-----Escoge un color -----") || nuevaPrenda.getColor().equals("")){
+            //Comprobamos que haya escogido un color
+        } else if (nuevaPrenda.getColor().equals("-----ESCOGE UN COLOR -----") || nuevaPrenda.getColor().equals("")){
             //Comprobamos que haya escogido un género
             JOptionPane.showMessageDialog(this, "Debes escoger un género", "Genero incorrecto", JOptionPane.ERROR_MESSAGE);
-        } else if (nuevaPrenda.getTalla().equals ("--- Escoge una talla ---") | nuevaPrenda.getTalla().equals("")){
+        } else if (nuevaPrenda.getTalla().equals ("--- TALLA ---") | nuevaPrenda.getTalla().equals("")){
                 JOptionPane.showMessageDialog(this, "Debes escoger una talla", "Talla incorrecta", JOptionPane.ERROR_MESSAGE);
-        } else if (BoutiqueFichero.misPrendas.existe(nuevaPrenda)){
+        } else if (BoutiqueFichero.misPrendas.existePrenda(nuevaPrenda)){
             //Asegurarme que no se repita codigo 
-            //Llegados a este punto lo ddatos pueden ser correctos pero queda veridicar si 
-            //ya existe una pelicula con ese codigo
-            JOptionPane.showMessageDialog(this, "Ya existe una prenda con este codigo", "Codigo duplicado", JOptionPane.ERROR_MESSAGE);
+            //Llegados a este punto lo datos pueden ser correctos pero queda veridicar si 
+            //ya existe una prenda con ese codigo
+            JOptionPane.showMessageDialog(this, "Ya existe una prenda con este codigo", 
+                    "Codigo duplicado", JOptionPane.ERROR_MESSAGE);
+        } else if (nuevaPrenda.getPrecioCoste() <= 0 || nuevaPrenda.getPrecioVenta() <= 0) {
+            JOptionPane.showMessageDialog(this, "Los precios tienen que ser superiores a 0.",
+                    "Precios incorrectos", JOptionPane.ERROR_MESSAGE);
+        } else if (jComboBoxColor.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Debes elegir un color",
+                    "Color incorrecto", JOptionPane.ERROR_MESSAGE);
+        } else if (jComboBoxTalla.getSelectedIndex() == 0){
+            JOptionPane.showMessageDialog(this, "Debes elegir una talla",
+                    "Talla incorrecta", JOptionPane.ERROR_MESSAGE);
+        } else if (nuevaPrenda.getStock() < 0) {
+            JOptionPane.showMessageDialog(this, "El stock no puede ser negativo.",
+                    "Stock incorrecto", JOptionPane.ERROR_MESSAGE);
         } else {
-            //Si ha llegado aqui ya por fin todo es correcto y se puede dar de alta la pelicula
-            //Añadimos a la lista de peliculas
             BoutiqueFichero.misPrendas.altaPrenda(nuevaPrenda);
-            //Y grabamos en el fichero
             BoutiqueFichero.miFichero.grabar(BoutiqueFichero.misPrendas);
-            //Damos mensaje al usuario
-            JOptionPane.showMessageDialog(this, "Prenda dada de alta. Ole ole!!");
-            //Y cerramos la ventana
+            JOptionPane.showMessageDialog(this, "Prenda dada de alta. Ole ole!!",
+                    "Alta satisfactoria", JOptionPane.INFORMATION_MESSAGE);
             dispose();
-        }                                   
+        }  
+    
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AltaNuevasPrendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AltaNuevasPrendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AltaNuevasPrendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AltaNuevasPrendas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                AltaNuevasPrendas dialog = new AltaNuevasPrendas(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBoxColor;
+    private javax.swing.JComboBox jComboBoxTalla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -237,5 +239,6 @@ public class AltaNuevasPrendas extends javax.swing.JDialog {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }
